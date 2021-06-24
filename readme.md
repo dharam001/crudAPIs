@@ -1,24 +1,58 @@
-# Project Overview
-1. Clone the project
-2. Create a virtual environment for the project
-       e.g - mkvirtualenv <env name>
+## CRUD in Django REST framework
+This is a small Django project to demonstrate Django CRUD functionality.
+
+### Prerequisites
+Python 3.9+ [Download](https://www.python.org/downloads/)
+
+Django 3.2+
+
+Django REST Framework 3.1+
+
+### Installation
+Clone project
+`git clone https://github.com/dharam001/crudAPIs.git`
+   
+Create a virtual environment for the project (windows)
+   
+   `pip install virtualenvwrapper-win`
+   
+   `mkvirtualenv <env name>`
        
-3. Go to the top project directory named "apiProject" and install require
-   packages using cmd :
-               pip install -r requirement.txt
+Install required packages using command :
+   
+   `cd apiProject`
+   
+   `pip install -r requirement.txt`
                
-4. Run migrate command using :
-       python manage.py migrate 
+### Running the Application
+Before running the application we need to create the needed DB tables:
+
+`python manage.py migrate`
+
+Now you can run the development web server:
+
+`python manage.py runserver`
+
+To access the applications go to the URL http://localhost:8000/
        
-5. Run server by "python manage.py runserver" command
+### Visit `urls.py` in users_app to test APIs
+     
+### List of APIs
+       http://localhost:8000/   --  List of users
+       http://localhost:8000/create_user   --  Create user
+       http://localhost:8000/user/<pk>  -- Get User by id
+       http://localhost:8000/update/<pk>  -- Update User
+       http://localhost:8000/delete/<pk>  -- Delete  User
 
-6. Visiting to server address, Created APIs can be checked.
+### Running Testcases
+Run all testcases inside project
 
-7. To see the APIs url, go to the "user_app" folder inside project folder and
-   in that there is urls.py file which has APIs for required crud operation.
-                          OR
-       1. http://localhost:8000/   --  List of users
-       2. http://localhost:8000/create_user   --  Create user
-       3. http://localhost:8000/user/<pk>  -- Get User by id
-       4. http://localhost:8000/update/<pk>  -- Update User
-       5. http://localhost:8000/delete/<pk>  -- Delete  User
+`cd apiProject`
+  
+`pytest -v`
+  
+Running individual test
+
+`cd apiProject`
+
+`pytest -v <app-name>/<test folder>/<file-name>::<class name>::<method name>`
